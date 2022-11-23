@@ -1,0 +1,35 @@
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
+		 
+<script type="text/javascript" language="javascript">
+
+		 $(document).ready(function() {
+
+
+			$("#submit").click(function () {
+				var op = "U_NAME=" + $("#name").val() + "&email=" + $("#email").val();
+				alert(op);
+				$.ajax({
+                         type:"GET",
+						 url: "http://localhost:8080/twst/api/insert?" + op,
+						 success: function(data){
+                         alert(JSON.stringify(data));
+						 }
+						});
+			});
+		 
+ });
+</script>
+</head>
+<body>
+<h2> WELCOME </h2>
+<form>
+<label for = "name" >U_NAME :</label><br> 
+<input type="text" id="name"/><br><br>
+<label for = "email" >EMAIL :</label><br> 
+<input type="text" id="pass"/> <br> <br>
+<input type = "button" id="submit" value="Submit" />
+</form>
+</body>
+</html>
